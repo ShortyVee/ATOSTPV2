@@ -33,14 +33,14 @@ namespace ATO_STP_System
         {
             Employer employer = new Employer()
             {
-                name = text1.Text,
-                legalName = "Some Company",
-                abnNumber = "1234554676",
-                businessDescription = "Goods and Services",
-                contactEmail = "company@example.com",
-                startYear = new DateTime(2019, 07, 28),
-                endYear = new DateTime(2020, 07, 28),
-                address = "1234 example place"
+                name = textName.Text,
+                legalName = textLegalName.Text,
+                abnNumber = textABN.Text,
+                businessDescription = textBusinessDescription.Text,
+                contactEmail = textEmail.Text,
+                startYear = dateStartYear.SelectedDate.Value.Date,
+                endYear = dateEndYear.SelectedDate.Value.Date,
+                address = textAddress.Text,
             };
 
 
