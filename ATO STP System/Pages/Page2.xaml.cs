@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ATO_STP_System.Helpers;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,5 +28,30 @@ namespace ATO_STP_System
             this.Height = (System.Windows.SystemParameters.PrimaryScreenHeight * 0.75);
             this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth * 0.60);
         }
+
+ 
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            Employee employee = new Employee()
+            {
+                employeeName = nameField.Text,
+                employeeLastName = lNameField.Text,
+                abnNumber = abnField.Text,
+                description = businessField.Text,
+                emailAddress = emailField.Text,
+                startYear = startField,
+                endYear = endField.Text,// Dont forget to change this to a date
+                address = addressField.Text
+            };
+
+
+            using (SQLiteConnection connection = new SQLiteConnection(DatabaseHelpers.databasePath))
+            {
+                connection.CreateTable<Employee>();
+                connection.Insert(employee);
+            }
+
+        }
+       
     }
 }
