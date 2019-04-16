@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+
 
 namespace ATO_STP_System
 {
@@ -20,11 +22,30 @@ namespace ATO_STP_System
     /// </summary>
     public partial class Page4 : Page
     {
+        MessageBoxResult result = MessageBox.Show("The file was transferred successfully!", "Confirmation");
+
+
         public Page4()
         {
             InitializeComponent();
             this.Height = (System.Windows.SystemParameters.PrimaryScreenHeight * 0.75);
             this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth * 0.60);
+            //nameofform.Visibility = Visibility.Hidden;
+            TimerLoad();
+
+            //nameofform.Visibility = Visibility.Visible;
+
         }
+
+        public async void TimerLoad()
+        {
+            await Task.Delay(2000);
+            panel.Visibility = Visibility.Hidden;
+
+        }
+
+
+
     }
 }
+
