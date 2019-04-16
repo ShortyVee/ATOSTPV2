@@ -8,7 +8,25 @@
       Title="Page2" Height="450" Width="800">
 
     <Grid>
-        <Button x:Name="button" Content="Send Data!" HorizontalAlignment="Left" Margin="335,60,0,0" VerticalAlignment="Top" Width="91"/>
-        <TextBlock x:Name="textBlock" Margin="104,142,128,44" TextWrapping="Wrap" Text="Page 2" VerticalAlignment="Center" Height="233" Width="560" HorizontalAlignment="Center" TextAlignment="Center"/>
+        <Button x:Name="button" Content="Send Data!" HorizontalAlignment="Left" Margin="596,392,0,0" VerticalAlignment="Top" Width="91"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,97,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,137,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,181,0,0" TextWrapping="Wrap" Text="Contact Email" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,229,0,0" TextWrapping="Wrap" Text="ABN#" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,279,0,0" TextWrapping="Wrap" Text="Business Description" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,322,0,0" TextWrapping="Wrap" Text="Start Year" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,371,0,0" TextWrapping="Wrap" Text="End Year" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="271,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="23" Margin="271,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="endField" HorizontalAlignment="Left" Height="23" Margin="271,369,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="startField" HorizontalAlignment="Left" Height="23" Margin="271,329,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="businessField" HorizontalAlignment="Left" Height="23" Margin="271,277,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="abnField" HorizontalAlignment="Left" Height="23" Margin="271,227,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="23" Margin="271,179,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="lNameField" HorizontalAlignment="Left" Height="23" Margin="271,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="addressField" HorizontalAlignment="Left" Height="23" Margin="271,397,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="609,36,0,0" VerticalAlignment="Top" Width="100" Source="/ATO STP System;component/Assets/taewook.PNG"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,397,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" FontSize="16"/>
+        
     </Grid>
 </Page>
