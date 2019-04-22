@@ -39,9 +39,9 @@ namespace ATO_STP_System
                 abnNumber = abnField.Text,
                 description = businessField.Text,
                 emailAddress = emailField.Text,
-                startYear = startField,
+                startYear = startField.Text,
                 endYear = endField.Text,// Dont forget to change this to a date
-                address = addressField.Text
+                address = addressField.Text //comment
             };
 
 
