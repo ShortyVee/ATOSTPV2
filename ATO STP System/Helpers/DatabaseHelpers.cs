@@ -11,6 +11,7 @@ namespace ATO_STP_System.Helpers
     public partial class DatabaseHelpers : Application
     {
         static string databaseName = "Employee.db";
+        static string databaseName2 = "Employer.db";
         static string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public static string databasePath = System.IO.Path.Combine(folderPath, databaseName);
     }
