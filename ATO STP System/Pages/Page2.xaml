@@ -8,7 +8,7 @@
       Title="Page2" Height="927.883" Width="800">
 
     <Grid>
-        <Button x:Name="button" Content="Send Data!" HorizontalAlignment="Left" Margin="622,879,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button x:Name="button" Content="Send Data!" HorizontalAlignment="Left" Margin="513,684,0,0" VerticalAlignment="Top" Width="91"/>
         <TextBlock x:Name="FromDateLbl" HorizontalAlignment="Left" Margin="72,97,0,0" TextWrapping="Wrap" Text="From Date" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="ToDateLbl" HorizontalAlignment="Left" Margin="393,97,0,0" TextWrapping="Wrap" Text="To Date" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="PaymentDateLbl" HorizontalAlignment="Left" Margin="72,137,0,0" TextWrapping="Wrap" Text="Payment Date" VerticalAlignment="Top" FontSize="16"/>
@@ -16,15 +16,15 @@
         <TextBlock x:Name="DescriptionLbl" HorizontalAlignment="Left" Margin="72,183,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="PaymentHeaderLbl" HorizontalAlignment="Left" Margin="72,252,0,0" TextWrapping="Wrap" Text="Payment Header" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="PaymentForLbl" HorizontalAlignment="Left" Margin="72,305,0,0" TextWrapping="Wrap" Text="Payment For" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="188,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="23" Margin="188,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="endField" HorizontalAlignment="Left" Height="23" Margin="484,477,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="startField" HorizontalAlignment="Left" Height="23" Margin="271,477,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="businessField" HorizontalAlignment="Left" Height="23" Margin="484,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="abnField" HorizontalAlignment="Left" Height="60" Margin="188,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="416"/>
-        <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="23" Margin="484,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="lNameField" HorizontalAlignment="Left" Height="23" Margin="484,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="addressField" HorizontalAlignment="Left" Height="23" Margin="271,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PaymentDateField" HorizontalAlignment="Left" Height="23" Margin="188,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="FromDateField" HorizontalAlignment="Left" Height="23" Margin="188,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TaxCodeField" HorizontalAlignment="Left" Height="23" Margin="484,477,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="RateField" HorizontalAlignment="Left" Height="23" Margin="271,477,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="EarningAccountField" HorizontalAlignment="Left" Height="23" Margin="484,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DescriptionField" HorizontalAlignment="Left" Height="60" Margin="188,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="416"/>
+        <TextBox x:Name="StatusField" HorizontalAlignment="Left" Height="23" Margin="484,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="ToDateField" HorizontalAlignment="Left" Height="23" Margin="484,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="EarningAmountField" HorizontalAlignment="Left" Height="23" Margin="271,409,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="690,36,0,0" VerticalAlignment="Top" Width="100" Source="/ATO STP System;component/Assets/taewook.PNG"/>
         <TextBlock x:Name="EarningsLbl" HorizontalAlignment="Left" Margin="72,375,0,0" TextWrapping="Wrap" Text="Earnings" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <TextBlock x:Name="AccountLbl" HorizontalAlignment="Left" Margin="484,375,0,0" TextWrapping="Wrap" Text="Account" VerticalAlignment="Top" FontSize="16"/>
@@ -32,19 +32,20 @@
         <TextBlock x:Name="AmountLbl_Copy" HorizontalAlignment="Left" Margin="485,444,0,0" TextWrapping="Wrap" Text="Tax code" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="AmountLbl_Copy1" HorizontalAlignment="Left" Margin="271,444,0,0" TextWrapping="Wrap" Text="Rate" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="AmountLbl_Copy2" HorizontalAlignment="Left" Margin="72,444,0,0" TextWrapping="Wrap" Text="Quantity" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="startField_Copy" HorizontalAlignment="Left" Height="23" Margin="72,477,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="EarningsQuantityField" HorizontalAlignment="Left" Height="23" Margin="72,477,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="EarningsLbl_Copy" HorizontalAlignment="Left" Margin="72,550,0,0" TextWrapping="Wrap" Text="Tax Details" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <TextBlock x:Name="AmountLbl_Copy3" HorizontalAlignment="Left" Margin="485,597,0,0" TextWrapping="Wrap" Text="HECS" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="AmountLbl_Copy4" HorizontalAlignment="Left" Margin="271,597,0,0" TextWrapping="Wrap" Text="Frequency" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="AmountLbl_Copy5" HorizontalAlignment="Left" Margin="72,597,0,0" TextWrapping="Wrap" Text="Quantity" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="endField_Copy" HorizontalAlignment="Left" Height="23" Margin="72,623,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="endField_Copy1" HorizontalAlignment="Left" Height="23" Margin="271,623,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="endField_Copy2" HorizontalAlignment="Left" Height="23" Margin="485,623,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="EarningsLbl_Copy1" HorizontalAlignment="Left" Margin="72,699,0,0" TextWrapping="Wrap" Text="PAYG Withholdings" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBlock x:Name="AmountLbl_Copy6" HorizontalAlignment="Left" Margin="72,764,0,0" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="endField_Copy3" HorizontalAlignment="Left" Height="23" Margin="72,795,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="AmountLbl_Copy7" HorizontalAlignment="Left" Margin="271,763,0,0" TextWrapping="Wrap" Text="Tax code" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="endField_Copy4" HorizontalAlignment="Left" Height="23" Margin="271,795,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TaxQuantityField" HorizontalAlignment="Left" Height="23" Margin="72,623,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TaxFrequencyField" HorizontalAlignment="Left" Height="23" Margin="271,623,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="HecsField" HorizontalAlignment="Left" Height="23" Margin="485,623,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="EarningsLbl_Copy1" HorizontalAlignment="Left" Margin="72,667,0,0" TextWrapping="Wrap" Text="PAYG Withholdings" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBlock x:Name="AmountLbl_Copy6" HorizontalAlignment="Left" Margin="72,718,0,0" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="PaygAmountField" HorizontalAlignment="Left" Height="23" Margin="72,752,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="AmountLbl_Copy7" HorizontalAlignment="Left" Margin="271,718,0,0" TextWrapping="Wrap" Text="Tax code" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="button2" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Click="Save_Click" Margin="530,0,195,188"/>
+        <TextBox x:Name="TaxcodeField" HorizontalAlignment="Left" Height="23" Margin="271,752,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Page>

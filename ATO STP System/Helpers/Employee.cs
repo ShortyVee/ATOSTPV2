@@ -8,27 +8,27 @@ namespace ATO_STP_System.Helpers
 {
     public class Employee
     {
-        public string employeeName { get; set; }
-        public string employeeLastName { get; set; }
-        public string abnNumber { get; set; }
-        public string address { get; set; }
-        public string fromDate { get; set; }
-        public string toDate { get; set; }
-        public string paymentDate { get; set; }
-        public string status { get; set; }
-        public string description { get; set; }
-        public string earningAmount { get; set; }
-        public string endYear { get; set; }
-        public string earningAccount { get; set; }
-        public string earningQuantity { get; set; }
-        public string earningRate { get; set; }
-        public string emailAddress { get; set; }
-        public string startYear { get; set; }
-        public string taxCode { get; set; }
-        public string taxQuantity { get; set; }
-        public string taxFrequency { get; set; }
-        public string taxHECS { get; set; }
-        public string paygAmount { get; set; }
-        public string paygTaxCode { get; set; }
+        public string EmployeeName { get; set; }
+        public string EmployeeLastName { get; set; }
+        public string AbnNumber { get; set; }
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
+        public string PaymentDate { get; set; }
+        public string Status { get; set; }
+        public string Description { get; set; }
+        public string EarningAmount { get; set; }
+        public string EndYear { get; set; }
+        public string EarningAccount { get; set; }
+        public string EarningQuantity { get; set; }
+        public string EarningRate { get; set; }
+        public string EmailAddress { get; set; }
+        public string EarningsRate { get; set; }
+        public string StartYear { get; set; }
+        public string TaxCode { get; set; }
+        public string TaxQuantity { get; set; }
+        public string TaxFrequency { get; set; }
+        public string TaxHECS { get; set; }
+        public string PaygAmount { get; set; }
+        public string PaygTaxCode { get; set; }
     }
 }
