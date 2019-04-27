@@ -29,19 +29,25 @@ namespace ATO_STP_System
             this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth * 0.60);
         }
 
- 
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             Employee employee = new Employee()
             {
-                employeeName = nameField.Text,
-                employeeLastName = lNameField.Text,
-                abnNumber = abnField.Text,
-                description = businessField.Text,
-                emailAddress = emailField.Text,
-                startYear = startField.Text,
-                endYear = endField.Text,// Dont forget to change this to a date
-                address = addressField.Text
+                FromDate = FromDateField.Text,
+                ToDate = ToDateLbl.Text,
+                PaymentDate = PaymentDateLbl.Text,
+                Status = StatusLbl.Text,
+                Description = DescriptionLbl.Text,
+                EarningAmount = EarningAmountField.Text,
+                EarningAccount = EarningAccountField.Text,// Dont forget to change this to a date
+                EarningQuantity = EarningsQuantityField.Text, //comment
+                EarningsRate = RateField.Text,
+                TaxCode = TaxCodeField.Text,
+                TaxQuantity = TaxQuantityField.Text,
+                TaxFrequency = TaxFrequencyField.Text,
+                TaxHECS = HecsField.Text,
+
             };
 
 
@@ -51,7 +57,17 @@ namespace ATO_STP_System
                 connection.Insert(employee);
             }
 
+            /*
+             *
+             * Name="FromDateLbl", Name="ToDateLbl", Name="PaymentDateLbl", Name="StatusLbl", Name="DescriptionLbl", Name="PaymentHeaderLbl, Name="PaymentForLbl", Name="PaymentDateField"
+             * Name="FromDateField", Name="TaxCodeField", Name="RateField", Name="AccountField", Name="DescriptionField", Name="StatusField", Name="ToDateField", Name="AmountField"
+             * Name="EarningsLbl", Name="AccountLbl", Name="AmountLbl", Name="AmountLbl_Copy", Name="AmountLbl_Copy1", Name="AmountLbl_Copy2", Name="quantityField", Name="EarningsLbl_CopyH"
+             * Name="AmountLbl_Copy3", Name="AmountLbl_Copy4", Name="AmountLbl_Copy5", Name="taxQuantityField", Name="FrequencyField", Name="HecsField", Name="EarningsLbl_Copyo1"
+             * Name="AmountLbl_Copy6", Name="PaygAmountField", Name="AmountLbl_Copy7", Name="TaxcodeField"
+             * */
+
+
         }
-       
+
     }
 }
