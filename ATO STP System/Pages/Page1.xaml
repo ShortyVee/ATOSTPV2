@@ -18,6 +18,8 @@
             <TextBox x:Name="textEmail" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="223,136,437,243"/>
             <Label x:Name="labelEmail" Content="Contact Email&#xA;" HorizontalAlignment="Left" Margin="59,132,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
             <TextBox x:Name="textABN" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="223,168,437,211"/>
+            
+                <!--NumericValidationRule-->
             <Label x:Name="labelABN" Content="ABN#" HorizontalAlignment="Left" Margin="59,164,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
             <TextBox x:Name="textBusinessDescription" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="223,200,437,179"/>
             <Label x:Name="labelBusinessDescription" Content="Business Description&#xA;" HorizontalAlignment="Left" Margin="59,196,0,0" VerticalAlignment="Top" Width="137" Height="27"/>
