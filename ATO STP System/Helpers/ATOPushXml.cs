@@ -7,24 +7,24 @@ using System.Xml.Serialization;
 
 namespace ATO_STP_System.Helpers
 {
+    [Serializable]
+
     public class ATOPushXml
     {
 
-        public RecordDelimiterXml recordDelimiter { get; set; }
+
+        [XmlElement("Record_Delimiter", Namespace = null)]
+        public Record_Delimiter Attributes = new Record_Delimiter();
 
 
-        public ATOPushXml()
-        {
-            recordDelimiter = new RecordDelimiterXml();
-
-           
-        }
 
     }
 
 
     public class Record_Delimiter
     {
+
+        
         [XmlAttribute]
         public string DocumentID { get; set; }
 
@@ -36,6 +36,14 @@ namespace ATO_STP_System.Helpers
 
         [XmlAttribute]
         public string RelatedDocumentID { get; set; }
+
+        public Record_Delimiter()
+        {
+            DocumentID = "1.2";
+            DocumentType = "CHILD";
+            DocumentName = "PAYEVNTEMP";
+            RelatedDocumentID = "1.1";
+        }
 
 
     }

@@ -129,21 +129,34 @@ namespace ATO_STP_System.Helpers
                 settings.Indent = true;        // For cosmetic purposes.
                 settings.IndentChars = "    "; // For cosmetic purposes.
                 settings.ConformanceLevel = ConformanceLevel.Auto;
+                settings.OmitXmlDeclaration = true;
+
+
                 
-                
+
+
 
                 using (var xmlWriter = XmlWriter.Create(streamWriter, settings))
                 {
-                     
-                   // streamWriter.Write("<Record_Delimiter DocumentID=\"1.2\" DocumentType=\"CHILD\" DocumentName=\"PAYEVNTEMP\" RelatedDocumentID=\"1.1\"/>\r");
+                    streamWriter.Write("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
+                    streamWriter.Write("<Record_Delimiter DocumentID=\"1.2\" DocumentType=\"CHILD\" DocumentName=\"PAYEVNTEMP\" RelatedDocumentID=\"1.1\"/>\r");
                     if (ns != null)
+                    {
                         serializer.Serialize(xmlWriter, obj, ns);
+
+                    }
+
                     else
+                    {
                         serializer.Serialize(xmlWriter, obj);
+
+                    }
+                        
                 }
                 
-                // return textWriter.ToString();
+
             }
+            
 
             using (var textWriter = new StringWriter())
             {

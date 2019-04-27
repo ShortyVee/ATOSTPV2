@@ -66,43 +66,53 @@ namespace ATO_STP_System
             PAYEVNT testPAYEVNT = new PAYEVNT();
 
             PAYEVNTEMP testPAYEVNTEMP = new PAYEVNTEMP();
-            testPAYEVNTEMP.Payee.AddressDetails.CountryC = "wow";
+
+            //THE MINIMUM FIELDS TO PASS THE VALIDATOR FOR EMPLOYEES
+            //testPAYEVNTEMP.Payee.AddressDetails.CountryC = "wow";
             testPAYEVNTEMP.Payee.AddressDetails.Line1T = "wowstreet";
             testPAYEVNTEMP.Payee.AddressDetails.Line2T = "wwo";
             testPAYEVNTEMP.Payee.AddressDetails.LocalityNameT = "fmak";
-            testPAYEVNTEMP.Payee.AddressDetails.PostcodeT = "0000";
-            testPAYEVNTEMP.Payee.AddressDetails.StateOrTerritoryC = "ACT";
-            testPAYEVNTEMP.Payee.ElectronicContact.ElectronicMailAddressT = "yea";
+            testPAYEVNTEMP.Payee.AddressDetails.PostcodeT = "0200";
+            testPAYEVNTEMP.Payee.AddressDetails.StateOrTerritoryC = "VIC";
+            testPAYEVNTEMP.Payee.ElectronicContact.ElectronicMailAddressT = "yea@gmail.com";
             testPAYEVNTEMP.Payee.ElectronicContact.TelephoneMinimalN = "10101";
-            testPAYEVNTEMP.Payee.EmployerConditions.EmploymentEndD = new DateTime(1999, 10, 10);
-            testPAYEVNTEMP.Payee.EmployerConditions.EmploymentStartD = new DateTime(1999, 10, 11);
+            testPAYEVNTEMP.Payee.EmployerConditions.ProxyDateEmploymentEndD = new DateTime(1999, 10, 10);
+            testPAYEVNTEMP.Payee.EmployerConditions.ProxyDateEmploymentStartD = new DateTime(1999, 10, 11);
             testPAYEVNTEMP.Payee.Identifiers.AustralianBusinessNumberId = "67094544519";
             testPAYEVNTEMP.Payee.Identifiers.EmploymentPayrollNumberId = "yea";
             testPAYEVNTEMP.Payee.Identifiers.TaxFileNumberId = "151994243";
             testPAYEVNTEMP.Payee.Onboarding.Declaration.SignatoryIdentifierT = "fawoiafwoiafw";
-            testPAYEVNTEMP.Payee.Onboarding.Declaration.SignatureD = new DateTime(1999, 10, 10);
+            testPAYEVNTEMP.Payee.Onboarding.Declaration.SignatureD = new DateTime(1999, 10, 10).Date;
             testPAYEVNTEMP.Payee.Onboarding.Declaration.StatementAcceptedI = true;
+            testPAYEVNTEMP.Payee.Onboarding = null;
             testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthDm = 10;
             testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthM = 10;
             testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthY = 1993;
             testPAYEVNTEMP.Payee.PersonNameDetails.FamilyNameT = "hea";
             testPAYEVNTEMP.Payee.PersonNameDetails.GivenNameT = "wow";
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.StartD = new DateTime(2013, 10, 10);
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.EndD = new DateTime(2013, 10, 11);
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.ProxyDateStartD = new DateTime(2013, 10, 10).Date;
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.ProxyDateEndD = new DateTime(2013, 10, 11).Date; ;
             testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.PayrollEventFinalI = false;
             testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.IndividualNonBusiness.GrossA = 12345;
             testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.IndividualNonBusiness.TaxWithheldA = 1234;
             testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.DeductionCollection = new DeductionCollection();
             testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.SuperannuationContribution.EmployerContributionsSuperannuationGuaranteeA = 980;
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.UnusedAnnualOrLongServiceLeavePayment = null;
 
 
 
 
+            Record_Delimiter ehh = new Record_Delimiter();
+            ehh.DocumentID = "1.2";
+            ehh.DocumentName = "PAYEVNTEMP";
+                ehh.DocumentType = "CHILD";
+            ehh.RelatedDocumentID = "1.1";
 
+            ATOPushXml atotest = new ATOPushXml();
 
             //Writes the xml to a file with filename. by default should appear in bin / Debug or bin/ Release folder.
             //USE THE EXTENSION.
-            XmlSerializationHelper.outputFileName = "testFile.xml";
+            XmlSerializationHelper.outputFileName = "TEST.xml";
             var xml = XmlSerializationHelper.GetXml(testPAYEVNTEMP, NameSpaces.XmlSerializerNamespaces);
             Console.WriteLine(xml);
 
