@@ -98,7 +98,7 @@ namespace ATO_STP_System.Helpers
         [XmlElement]
         public String EmploymentStartD
         {
-            get { return ProxyDateEmploymentStartD.ToString("yyyy-M-dd"); }
+            get { return ProxyDateEmploymentStartD.ToString("yyyy-MM-dd"); }
             set { ProxyDateEmploymentStartD = DateTime.Parse(value); }
         }
         [XmlIgnore]
@@ -107,7 +107,7 @@ namespace ATO_STP_System.Helpers
         [XmlElement]
         public String EmploymentEndD
         {
-            get { return ProxyDateEmploymentEndD.ToString("yyyy-M-dd"); }
+            get { return ProxyDateEmploymentEndD.ToString("yyyy-MM-dd"); }
             set { ProxyDateEmploymentEndD = DateTime.Parse(value); }
         }
     }
@@ -159,7 +159,7 @@ namespace ATO_STP_System.Helpers
         [XmlElement]
         public String StartD
         {
-            get { return ProxyDateStartD.ToString("yyyy-M-dd"); }
+            get { return ProxyDateStartD.ToString("yyyy-MM-dd"); }
             set { ProxyDateStartD = DateTime.Parse(value); }
         }
         [XmlIgnore]
@@ -168,7 +168,7 @@ namespace ATO_STP_System.Helpers
         [XmlElement]
         public String EndD
         {
-            get { return ProxyDateEndD.ToString("yyyy-M-dd"); }
+            get { return ProxyDateEndD.ToString("yyyy-MM-dd"); }
             set { ProxyDateEndD = DateTime.Parse(value); }
         }
         public bool PayrollEventFinalI { get; set; }

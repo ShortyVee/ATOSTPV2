@@ -63,7 +63,33 @@ namespace ATO_STP_System
 
 
             // var objeee = community;
+            //Necessary PAYEVNT fields.
             PAYEVNT testPAYEVNT = new PAYEVNT();
+            testPAYEVNT.Rp.SoftwareInformationBusinessManagementSystemId = "08136164-0685-4c6c-8697-6b9003b5b57a";
+            testPAYEVNT.Rp.AustralianBusinessNumberId = "67094544519";
+            testPAYEVNT.Rp.OrganisationDetailsOrganisationBranchC = "100";
+            testPAYEVNT.Rp.OrganisationName.DetailsOrganisationalNameT = "organisation namee";
+            testPAYEVNT.Rp.OrganisationName.PersonUnstructuredNameFullNameT = "name";
+            testPAYEVNT.Rp.ElectronicContact.ElectronicMailAddressT = "haha@gmail.com";
+            testPAYEVNT.Rp.ElectronicContact.TelephoneMinimalN = "12 34567890";
+            testPAYEVNT.Rp.AddressDetailsPostal.Line1T = "12 collins st";
+            testPAYEVNT.Rp.AddressDetailsPostal.LocalityNameT = "Melbourne";
+            testPAYEVNT.Rp.AddressDetailsPostal.StateOrTerritoryC = "VIC";
+            testPAYEVNT.Rp.AddressDetailsPostal.PostcodeT = "3000";
+            testPAYEVNT.Rp.AddressDetailsPostal.CountryC = "au";
+            testPAYEVNT.Rp.Payroll.ProxyPaymentRecordTransactionD = new DateTime(2000, 5, 5);
+            testPAYEVNT.Rp.Payroll.InteractionRecordCt = 10;
+            testPAYEVNT.Rp.Payroll.MessageTimestampGenerationDt = new DateTime(2000, 5, 5);
+            testPAYEVNT.Rp.Payroll.InteractionTransactionId = "BULK008";
+            testPAYEVNT.Rp.Payroll.AmendmentI = false;
+            //the M changes it to a decimal type
+            testPAYEVNT.Rp.Payroll.IncomeTaxAndRemuneration.PayAsYouGoWithholdingTaxWithheldA = 324188.31M;
+            testPAYEVNT.Rp.Payroll.IncomeTaxAndRemuneration.TotalGrossPaymentsWithholdingA = 17821.87M;
+            testPAYEVNT.Rp.Declaration.SignatoryIdentifierT = "jassmith";
+            testPAYEVNT.Rp.Declaration.ProxyDateSignatureD = new DateTime(2000, 5, 5);
+            testPAYEVNT.Rp.Declaration.StatementAcceptedI = true;
+
+
 
             PAYEVNTEMP testPAYEVNTEMP = new PAYEVNTEMP();
 
@@ -82,7 +108,7 @@ namespace ATO_STP_System
             testPAYEVNTEMP.Payee.Identifiers.EmploymentPayrollNumberId = "yea";
             testPAYEVNTEMP.Payee.Identifiers.TaxFileNumberId = "151994243";
             testPAYEVNTEMP.Payee.Onboarding.Declaration.SignatoryIdentifierT = "fawoiafwoiafw";
-            testPAYEVNTEMP.Payee.Onboarding.Declaration.SignatureD = new DateTime(1999, 10, 10).Date;
+            testPAYEVNTEMP.Payee.Onboarding.Declaration.ProxyDateSignatureD = new DateTime(1999, 10, 10);
             testPAYEVNTEMP.Payee.Onboarding.Declaration.StatementAcceptedI = true;
             testPAYEVNTEMP.Payee.Onboarding = null;
             testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthDm = 10;
@@ -99,6 +125,8 @@ namespace ATO_STP_System
             testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.SuperannuationContribution.EmployerContributionsSuperannuationGuaranteeA = 980;
             testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.UnusedAnnualOrLongServiceLeavePayment = null;
 
+            
+
 
 
 
@@ -113,7 +141,7 @@ namespace ATO_STP_System
             //Writes the xml to a file with filename. by default should appear in bin / Debug or bin/ Release folder.
             //USE THE EXTENSION.
             XmlSerializationHelper.outputFileName = "TEST.xml";
-            var xml = XmlSerializationHelper.GetXml(testPAYEVNTEMP, NameSpaces.XmlSerializerNamespaces);
+            var xml = XmlSerializationHelper.GetXml(testPAYEVNT, NameSpaces.XmlSerializerNamespaces);
             Console.WriteLine(xml);
 
 

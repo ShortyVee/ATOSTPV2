@@ -73,8 +73,16 @@ namespace ATO_STP_System.Helpers
 
     public class Payroll
     {
+        [XmlIgnore]
+        public DateTime ProxyPaymentRecordTransactionD { get; set; }
 
-        public DateTime PaymentRecordTransactionD { get; set; }
+        [XmlElement]
+        public String PaymentRecordTransactionD
+        {
+            get { return ProxyPaymentRecordTransactionD.ToString("yyyy-MM-dd"); }
+            set { ProxyPaymentRecordTransactionD = DateTime.Parse(value); }
+        }
+
         public decimal InteractionRecordCt { get; set; }
         public DateTime MessageTimestampGenerationDt { get; set; }
         public string InteractionTransactionId { get; set; }
@@ -92,7 +100,15 @@ namespace ATO_STP_System.Helpers
     {
 
         public string SignatoryIdentifierT { get; set; }
-        public DateTime SignatureD { get; set; }
+        [XmlIgnore]
+        public DateTime ProxyDateSignatureD { get; set; }
+
+        [XmlElement]
+        public String SignatureD
+        {
+            get { return ProxyDateSignatureD.ToString("yyyy-MM-dd"); }
+            set { ProxyDateSignatureD = DateTime.Parse(value); }
+        }
         public bool StatementAcceptedI { get; set; }
     }
 

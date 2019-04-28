@@ -120,7 +120,7 @@ namespace ATO_STP_System.Helpers
             var appendMode = false;
             var encoding = Encoding.UTF8;
 
-            using (var streamWriter = new StreamWriter(fname, appendMode, encoding))
+            using (var streamWriter = new StreamWriter(fname, appendMode , encoding))
             {
 
                 //streamWriter.Write("<Record_Delimiter DocumentID=\"1.2\" DocumentType=\"CHILD\" DocumentName=\"PAYEVNTEMP\" RelatedDocumentID=\"1.1\"/>");
@@ -138,8 +138,20 @@ namespace ATO_STP_System.Helpers
 
                 using (var xmlWriter = XmlWriter.Create(streamWriter, settings))
                 {
-                    streamWriter.Write("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
-                    streamWriter.Write("<Record_Delimiter DocumentID=\"1.2\" DocumentType=\"CHILD\" DocumentName=\"PAYEVNTEMP\" RelatedDocumentID=\"1.1\"/>\r");
+
+                    if(appendMode == false)
+                    {
+                        streamWriter.Write("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
+                    }
+                   
+                    if(obj.GetType() == typeof(PAYEVNTEMP))
+                    {
+                        streamWriter.Write("<Record_Delimiter DocumentID=\"1.2\" DocumentType=\"CHILD\" DocumentName=\"PAYEVNTEMP\" RelatedDocumentID=\"1.1\"/>\r");
+                    }
+                    else if(obj.GetType() == typeof(PAYEVNT))
+                    {
+                        streamWriter.Write("<Record_Delimiter DocumentID=\"1.1\" DocumentType=\"PARENT\" DocumentName=\"PAYEVNT\" RelatedDocumentID=\"\"/>\r");
+                    }
                     if (ns != null)
                     {
                         serializer.Serialize(xmlWriter, obj, ns);
