@@ -11,15 +11,15 @@
 
     <Grid>
         <Grid HorizontalAlignment="Left" Height="402" Margin="10,38,0,0" VerticalAlignment="Top" Width="780">
-            <TextBox x:Name="textName" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Name" VerticalAlignment="Center" Width="120" Margin="223,73,437,306"/>
-            <Label x:Name="labelName" Content="Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="59,72,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
+            <TextBox x:Name="textName" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Center" Width="120" Margin="223,73,437,306"/>
+            <Label x:Name="labelName" Content="Organisation Name&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="59,72,0,0" VerticalAlignment="Top" Width="127" Height="27"/>
             <TextBox x:Name="textLegalName" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="223,104,437,275"/>
-            <Label x:Name="labelLegalName" Content="Legal Name&#xA;" HorizontalAlignment="Left" Margin="59,100,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
+            <Label x:Name="labelLegalName" Content="Employer Name&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="59,100,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
             <TextBox x:Name="textEmail" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="223,136,437,243"/>
             <Label x:Name="labelEmail" Content="Contact Email&#xA;" HorizontalAlignment="Left" Margin="59,132,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
             <TextBox x:Name="textABN" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="223,168,437,211"/>
-            
-                <!--NumericValidationRule-->
+
+            <!--NumericValidationRule-->
             <Label x:Name="labelABN" Content="ABN#" HorizontalAlignment="Left" Margin="59,164,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
             <TextBox x:Name="textBusinessDescription" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="223,200,437,179"/>
             <Label x:Name="labelBusinessDescription" Content="Business Description&#xA;" HorizontalAlignment="Left" Margin="59,196,0,0" VerticalAlignment="Top" Width="137" Height="27"/>
@@ -30,6 +30,9 @@
             <Button x:Name="button" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Click="Save_Click" Margin="507,0,198,83"/>
             <DatePicker x:Name="dateStartYear" HorizontalAlignment="Left" Margin="223,231,0,0" VerticalAlignment="Top" Width="120"/>
             <DatePicker x:Name="dateEndYear" HorizontalAlignment="Left" Margin="223,263,0,0" VerticalAlignment="Top" Width="120"/>
+            <TextBlock x:Name="errorBlock" HorizontalAlignment="Left" Margin="382,68,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="219" Width="307"/>
+            <TextBox x:Name="textPostCode" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="223,328,437,51"/>
+            <Label x:Name="labelPostCode" Content="Postcode" HorizontalAlignment="Left" Margin="59,324,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
         </Grid>
     </Grid>
 </Page>

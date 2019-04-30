@@ -1,5 +1,7 @@
-﻿using ATO_STP_System.Helpers;
+﻿using Ato.EN.IntegrationServices.CodeGenerationPAYEVNTEMP;
+using ATO_STP_System.Helpers;
 using SQLite;
+using STPFileValidation;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -26,18 +28,24 @@ namespace ATO_STP_System
     /// </summary>
     public partial class Page1 : Page
     {
+
+        PAYEVNT testPAYEVNT;
+        
         public Page1()
         {
             InitializeComponent();
             this.Height = (System.Windows.SystemParameters.PrimaryScreenHeight * 0.75);
             this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth * 0.60);
 
-            textName.Text = "yea";
-            textLegalName.Text = "yea";
-            textABN.Text = "yea";
-            textBusinessDescription.Text = "yea";
-            textEmail.Text = "yea";
-            textAddress.Text = "yea";
+            errorBlock.Text = "";
+
+
+            textName.Text = "";
+            textLegalName.Text = "";
+            textABN.Text = "";
+            textBusinessDescription.Text = "";
+            textEmail.Text = "";
+            textAddress.Text = "";
 
 
             // TestXml community = new TestXml
@@ -64,7 +72,7 @@ namespace ATO_STP_System
 
             // var objeee = community;
             //Necessary PAYEVNT fields.
-            PAYEVNT testPAYEVNT = new PAYEVNT();
+            testPAYEVNT = new PAYEVNT();
             testPAYEVNT.Rp.SoftwareInformationBusinessManagementSystemId = "08136164-0685-4c6c-8697-6b9003b5b57a";
             testPAYEVNT.Rp.AustralianBusinessNumberId = "67094544519";
             testPAYEVNT.Rp.OrganisationDetailsOrganisationBranchC = "100";
@@ -91,58 +99,23 @@ namespace ATO_STP_System
 
 
 
-            PAYEVNTEMP testPAYEVNTEMP = new PAYEVNTEMP();
-
-            //THE MINIMUM FIELDS TO PASS THE VALIDATOR FOR EMPLOYEES
-            //testPAYEVNTEMP.Payee.AddressDetails.CountryC = "wow";
-            testPAYEVNTEMP.Payee.AddressDetails.Line1T = "wowstreet";
-            testPAYEVNTEMP.Payee.AddressDetails.Line2T = "wwo";
-            testPAYEVNTEMP.Payee.AddressDetails.LocalityNameT = "fmak";
-            testPAYEVNTEMP.Payee.AddressDetails.PostcodeT = "0200";
-            testPAYEVNTEMP.Payee.AddressDetails.StateOrTerritoryC = "VIC";
-            testPAYEVNTEMP.Payee.ElectronicContact.ElectronicMailAddressT = "yea@gmail.com";
-            testPAYEVNTEMP.Payee.ElectronicContact.TelephoneMinimalN = "10101";
-            testPAYEVNTEMP.Payee.EmployerConditions.ProxyDateEmploymentEndD = new DateTime(1999, 10, 10);
-            testPAYEVNTEMP.Payee.EmployerConditions.ProxyDateEmploymentStartD = new DateTime(1999, 10, 11);
-            testPAYEVNTEMP.Payee.Identifiers.AustralianBusinessNumberId = "67094544519";
-            testPAYEVNTEMP.Payee.Identifiers.EmploymentPayrollNumberId = "yea";
-            testPAYEVNTEMP.Payee.Identifiers.TaxFileNumberId = "151994243";
-            testPAYEVNTEMP.Payee.Onboarding.Declaration.SignatoryIdentifierT = "fawoiafwoiafw";
-            testPAYEVNTEMP.Payee.Onboarding.Declaration.ProxyDateSignatureD = new DateTime(1999, 10, 10);
-            testPAYEVNTEMP.Payee.Onboarding.Declaration.StatementAcceptedI = true;
-            testPAYEVNTEMP.Payee.Onboarding = null;
-            testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthDm = 10;
-            testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthM = 10;
-            testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthY = 1993;
-            testPAYEVNTEMP.Payee.PersonNameDetails.FamilyNameT = "hea";
-            testPAYEVNTEMP.Payee.PersonNameDetails.GivenNameT = "wow";
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.ProxyDateStartD = new DateTime(2013, 10, 10).Date;
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.ProxyDateEndD = new DateTime(2013, 10, 11).Date; ;
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.PayrollEventFinalI = false;
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.IndividualNonBusiness.GrossA = 12345;
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.IndividualNonBusiness.TaxWithheldA = 1234;
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.DeductionCollection = new DeductionCollection();
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.SuperannuationContribution.EmployerContributionsSuperannuationGuaranteeA = 980;
-            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.UnusedAnnualOrLongServiceLeavePayment = null;
+           
 
             
 
 
 
 
-            Record_Delimiter ehh = new Record_Delimiter();
-            ehh.DocumentID = "1.2";
-            ehh.DocumentName = "PAYEVNTEMP";
-                ehh.DocumentType = "CHILD";
-            ehh.RelatedDocumentID = "1.1";
-
-            ATOPushXml atotest = new ATOPushXml();
 
             //Writes the xml to a file with filename. by default should appear in bin / Debug or bin/ Release folder.
             //USE THE EXTENSION.
-            XmlSerializationHelper.outputFileName = "TEST.xml";
-            var xml = XmlSerializationHelper.GetXml(testPAYEVNT, NameSpaces.XmlSerializerNamespaces);
-            Console.WriteLine(xml);
+            //XmlSerializationHelper.outputFileName = "TEST.xml";
+            //var xml = XmlSerializationHelper.GetXml(testPAYEVNTEMP, NameSpaces.XmlSerializerNamespaces);
+            //Console.WriteLine(xml);
+
+           
+
+
 
 
 
@@ -155,29 +128,63 @@ namespace ATO_STP_System
 
 
 
-            Employer employer = new Employer()
-            {
-                name = textName.Text,
-                legalName = textLegalName.Text,
-                abnNumber = textABN.Text,
-                businessDescription = textBusinessDescription.Text,
-                contactEmail = textEmail.Text,
-                startYear = dateStartYear.SelectedDate.Value.Date,
-                endYear = dateEndYear.SelectedDate.Value.Date,
-                address = textAddress.Text,
-            };
+            //Employer employer = new Employer()
+            //{
+            //    name = textName.Text,
+            //    legalName = textLegalName.Text,
+            //    abnNumber = textABN.Text,
+            //    businessDescription = textBusinessDescription.Text,
+            //    contactEmail = textEmail.Text,
+            //    startYear = dateStartYear.SelectedDate.Value.Date,
+            //    endYear = dateEndYear.SelectedDate.Value.Date,
+            //    address = textAddress.Text,
+            //};
 
 
-            using (SQLiteConnection connection = new SQLiteConnection(DatabaseHelpers.databasePath))
+            //using (SQLiteConnection connection = new SQLiteConnection(DatabaseHelpers.databasePath))
+            //{
+            //    connection.CreateTable<Employer>();
+            //    connection.Insert(employer);
+            //}
+            testPAYEVNT.Rp.OrganisationName.DetailsOrganisationalNameT = textName.Text;
+            testPAYEVNT.Rp.OrganisationName.PersonUnstructuredNameFullNameT = textLegalName.Text;
+            testPAYEVNT.Rp.AustralianBusinessNumberId = textABN.Text;
+            testPAYEVNT.Rp.ElectronicContact.ElectronicMailAddressT = textEmail.Text;
+            testPAYEVNT.Rp.AddressDetailsPostal.Line1T = textAddress.Text;
+            testPAYEVNT.Rp.AddressDetailsPostal.PostcodeT = textPostCode.Text;
+
+            XmlSerializationHelper.outputFileName = "ATOPAYLOAD.xml";
+            var xml = XmlSerializationHelper.GetXml(testPAYEVNT, NameSpaces.XmlSerializerNamespaces);
+            Console.WriteLine(xml);
+
+            Validate();
+
+
+
+
+
+        }
+
+        public void Validate()
+        {
+            STPFileValidator _STPFileValidator = new STPFileValidator();
+
+
+            errorBlock.Text = "";
+
+            _STPFileValidator.Validate("ATOPAYLOAD.xml");
+            foreach (var error in _STPFileValidator.Errors)
             {
-                connection.CreateTable<Employer>();
-                connection.Insert(employer);
+                errorBlock.Text = errorBlock.Text + (error.Description) + (error.LongDescription)+ "\r\n";
+               
             }
+               
+            
 
-
-
-
-
+            if (errorBlock.Text.Length < 5)
+            {
+                errorBlock.Text = "SUCCESS! VALID DETAILS";
+            }
         }
 
 

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using Ato.EN.IntegrationServices.CodeGenerationPAYEVNTEMP;
 
 namespace ATO_STP_System.Helpers
 {
@@ -120,6 +121,11 @@ namespace ATO_STP_System.Helpers
             var appendMode = false;
             var encoding = Encoding.UTF8;
 
+            if (obj.GetType() == typeof(PAYEVNTEMP))
+            {
+                appendMode = true;
+            }
+
             using (var streamWriter = new StreamWriter(fname, appendMode , encoding))
             {
 
@@ -141,7 +147,7 @@ namespace ATO_STP_System.Helpers
 
                     if(appendMode == false)
                     {
-                        streamWriter.Write("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
+                        streamWriter.Write("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
                     }
                    
                     if(obj.GetType() == typeof(PAYEVNTEMP))
@@ -165,10 +171,16 @@ namespace ATO_STP_System.Helpers
                     }
                         
                 }
-                
+
+
+                streamWriter.Close();
 
             }
             
+           
+
+
+
 
             using (var textWriter = new StringWriter())
             {
@@ -183,6 +195,8 @@ namespace ATO_STP_System.Helpers
                     else
                         serializer.Serialize(xmlWriter, obj);
                 }
+
+                textWriter.Close();
                 return textWriter.ToString();
 
             }

@@ -1,5 +1,6 @@
 ﻿using ATO_STP_System.Helpers;
 using SQLite;
+using STPFileValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,11 +23,47 @@ namespace ATO_STP_System
     /// </summary>
     public partial class Page2 : Page
     {
+        ATO_STP_System.Helpers.PAYEVNTEMP testPAYEVNTEMP;
+
         public Page2()
         {
             InitializeComponent();
             this.Height = (System.Windows.SystemParameters.PrimaryScreenHeight * 0.75);
             this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth * 0.60);
+
+            testPAYEVNTEMP = new ATO_STP_System.Helpers.PAYEVNTEMP();
+
+            //THE MINIMUM FIELDS TO PASS THE VALIDATOR FOR EMPLOYEES
+            //testPAYEVNTEMP.Payee.AddressDetails.CountryC = "wow";
+            testPAYEVNTEMP.Payee.AddressDetails.Line1T = "wowstreet";
+            testPAYEVNTEMP.Payee.AddressDetails.Line2T = "wwo";
+            testPAYEVNTEMP.Payee.AddressDetails.LocalityNameT = "fmak";
+            testPAYEVNTEMP.Payee.AddressDetails.PostcodeT = "0200";
+            testPAYEVNTEMP.Payee.AddressDetails.StateOrTerritoryC = "VIC";
+            testPAYEVNTEMP.Payee.ElectronicContact.ElectronicMailAddressT = "yea@gmail.com";
+            testPAYEVNTEMP.Payee.ElectronicContact.TelephoneMinimalN = "10101";
+            testPAYEVNTEMP.Payee.EmployerConditions.ProxyDateEmploymentEndD = new DateTime(1999, 10, 10);
+            testPAYEVNTEMP.Payee.EmployerConditions.ProxyDateEmploymentStartD = new DateTime(1999, 10, 11);
+            testPAYEVNTEMP.Payee.Identifiers.AustralianBusinessNumberId = "67094544519";
+            testPAYEVNTEMP.Payee.Identifiers.EmploymentPayrollNumberId = "yea";
+            testPAYEVNTEMP.Payee.Identifiers.TaxFileNumberId = "151994243";
+            testPAYEVNTEMP.Payee.Onboarding.Declaration.SignatoryIdentifierT = "fawoiafwoiafw";
+            testPAYEVNTEMP.Payee.Onboarding.Declaration.ProxyDateSignatureD = new DateTime(1999, 10, 10);
+            testPAYEVNTEMP.Payee.Onboarding.Declaration.StatementAcceptedI = true;
+            testPAYEVNTEMP.Payee.Onboarding = null;
+            testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthDm = 10;
+            testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthM = 10;
+            testPAYEVNTEMP.Payee.PersonDemographicDetails.BirthY = 1993;
+            testPAYEVNTEMP.Payee.PersonNameDetails.FamilyNameT = "hea";
+            testPAYEVNTEMP.Payee.PersonNameDetails.GivenNameT = "wow";
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.ProxyDateStartD = new DateTime(2013, 10, 10).Date;
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.ProxyDateEndD = new DateTime(2013, 10, 11).Date; ;
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.PayrollPeriod.PayrollEventFinalI = false;
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.IndividualNonBusiness.GrossA = 12345;
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.IndividualNonBusiness.TaxWithheldA = 1234;
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.DeductionCollection = new ATO_STP_System.Helpers.DeductionCollection();
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.SuperannuationContribution.EmployerContributionsSuperannuationGuaranteeA = 980;
+            testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.UnusedAnnualOrLongServiceLeavePayment = null;
         }
 
 
@@ -57,6 +94,15 @@ namespace ATO_STP_System
                 connection.Insert(employee);
             }
 
+           
+
+
+            XmlSerializationHelper.outputFileName = "ATOPAYLOAD.xml";
+            var xml = XmlSerializationHelper.GetXml(testPAYEVNTEMP, NameSpaces.XmlSerializerNamespaces);
+            Console.WriteLine(xml);
+
+            Validate();
+
             /*
              *
              * Name="FromDateLbl", Name="ToDateLbl", Name="PaymentDateLbl", Name="StatusLbl", Name="DescriptionLbl", Name="PaymentHeaderLbl, Name="PaymentForLbl", Name="PaymentDateField"
@@ -67,6 +113,30 @@ namespace ATO_STP_System
              * */
 
 
+
+
+        }
+
+        public void Validate()
+        {
+            STPFileValidator _STPFileValidator = new STPFileValidator();
+
+
+            errorBlock.Text = "";
+
+            _STPFileValidator.Validate("ATOPAYLOAD.xml");
+            foreach (var error in _STPFileValidator.Errors)
+            {
+                errorBlock.Text = errorBlock.Text + (error.Description) + (error.LongDescription) + "\r\n";
+
+            }
+
+
+
+            if (errorBlock.Text.Length < 5)
+            {
+                errorBlock.Text = "SUCCESS! VALID DETAILS";
+            }
         }
 
     }

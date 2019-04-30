@@ -61,6 +61,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -87,6 +88,28 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CsharpCode\Common\PAYEVNT2018RequestContract.cs" />
+    <Compile Include="CsharpCode\Common\PAYEVNT2018RequestEntity.cs" />
+    <Compile Include="CsharpCode\Common\PAYEVNT2018RequestXmlConsumer.cs" />
+    <Compile Include="CsharpCode\Common\PAYEVNTEMP2018RequestContract.cs" />
+    <Compile Include="CsharpCode\Common\PAYEVNTEMP2018RequestEntity.cs" />
+    <Compile Include="CsharpCode\Common\PAYEVNTEMP2018RequestXmlConsumer.cs" />
+    <Compile Include="CsharpCode\IInteractiveProcess.cs" />
+    <Compile Include="CsharpCode\IParameters.cs" />
+    <Compile Include="CsharpCode\IProcessMessage.cs" />
+    <Compile Include="CsharpCode\NotifyClass.cs" />
+    <Compile Include="CsharpCode\ProcessMessageDocument.cs" />
+    <Compile Include="CsharpCode\ProcessMessageParameter.cs" />
+    <Compile Include="CsharpCode\ProcessMessageParameters.cs" />
+    <Compile Include="CsharpCode\ProcessMessageSeverity.cs" />
+    <Compile Include="CsharpCode\RelayCommand.cs" />
+    <Compile Include="CsharpCode\STPFile.cs" />
+    <Compile Include="CsharpCode\STPFileValidator.cs" />
+    <Compile Include="CsharpCode\STPStream.cs" />
+    <Compile Include="CsharpCode\Submit\PAYEVNT2018RequestValidator.cs" />
+    <Compile Include="CsharpCode\Submit\PAYEVNTEMP2018RequestValidator.cs" />
+    <Compile Include="CsharpCode\Update\PAYEVNT2018RequestValidator.cs" />
+    <Compile Include="CsharpCode\Update\PAYEVNTEMP2018RequestValidator.cs" />
     <Compile Include="Helpers\ATOPushXml.cs" />
     <Compile Include="Helpers\DatabaseHelpers.cs" />
     <Compile Include="Helpers\Employee.cs" />
@@ -144,6 +167,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\ato.payevnt.0003.2018.01.00.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\ato.payevntemp.0003.2018.01.00.xsd">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
