@@ -5,13 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:ATO_STP_System"
       mc:Ignorable="d"
-      Height="450"
+      Height="750"
       Width="800"
       Title="Page3">
 
     <Grid>
         <TextBlock x:Name="page4Block" Margin="244,61,248,36" TextWrapping="Wrap" Text="Page 4" VerticalAlignment="Center" Height="353" Width="308" HorizontalAlignment="Center" TextAlignment="Center"/>
-        <StackPanel HorizontalAlignment="Left" Height="180" Margin="129,154,0,0" VerticalAlignment="Top" Width="533" RenderTransformOrigin="0.341,-0.917">
+        <StackPanel Margin="134,285,133,285" RenderTransformOrigin="0.341,-0.917">
             <StackPanel.Resources>
                 <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
@@ -23,7 +23,7 @@
                         <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#00009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#00009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#00009696"/>
-                        
+
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse1">
                         <EasingColorKeyFrame KeyTime="0" Value="#BF009696"/>
@@ -34,7 +34,7 @@
                         <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#00009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#00009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#FF009696"/>
-                        
+
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse2">
                         <EasingColorKeyFrame KeyTime="0" Value="#7F009696"/>
@@ -45,7 +45,7 @@
                         <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#00009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#FF009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#BF009696"/>
-                        
+
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse3">
                         <EasingColorKeyFrame KeyTime="0" Value="#3F009696"/>
@@ -56,7 +56,7 @@
                         <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#FF009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#BF009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#7F009696"/>
-                        
+
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse4">
                         <EasingColorKeyFrame KeyTime="0" Value="#00009696"/>
@@ -67,7 +67,7 @@
                         <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#BF009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#7F009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#3F009696"/>
-                        
+
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse5">
                         <EasingColorKeyFrame KeyTime="0" Value="#00009696"/>
@@ -78,7 +78,7 @@
                         <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#7F009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#3F009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#00009696"/>
-                        
+
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse6">
                         <EasingColorKeyFrame KeyTime="0" Value="#00009696"/>
@@ -89,7 +89,7 @@
                         <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#3F009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#00009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#00009696"/>
-                        
+
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse7">
                         <EasingColorKeyFrame KeyTime="0" Value="#00009696"/>
@@ -100,7 +100,7 @@
                         <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#00009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#00009696"/>
                         <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#00009696"/>
-                        
+
                     </ColorAnimationUsingKeyFrames>
                 </Storyboard>
             </StackPanel.Resources>
@@ -124,6 +124,7 @@
                 <Ellipse x:Name="ellipse6" Fill="#7F009696" HorizontalAlignment="Right" Margin="-207,0,273,109" Stroke="Black" Width="25" Height="25" VerticalAlignment="Bottom" RenderTransformOrigin="0.307,0.502" OpacityMask="Black"/>
             </Grid>
         </StackPanel>
+        <Label x:Name="Results" Content="Results" Margin="320,30,320,0" VerticalAlignment="Top" Height="59" FontSize="36" HorizontalAlignment="Center"/>
     </Grid>
 </Page>
 

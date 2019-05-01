@@ -33,59 +33,11 @@ namespace ATO_STP_System
         public MainWindow()
         {
             InitializeComponent();
-            this.Height = (System.Windows.SystemParameters.PrimaryScreenHeight * 0.75);
-            this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth * 0.60);
+            /*this.Height = (System.Windows.SystemParameters.PrimaryScreenHeight * 0.75);
+            this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth * 0.60);*/
             _NavigationFrame.Navigate(new Page1());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            WebRequest req = null;
-            WebResponse rsp = null;
-            try
-            {
-                string fileName = "C:\ato.payevnt.0003.2018.01.00.PushRequest.sample.xml";
-                string uri = "https://test2.ato.sbr.gov.au/services/Single-sync";
-                req = WebRequest.Create(uri);
-                //req.Proxy = WebProxy.GetDefaultProxy(); // Enable if using proxy
-                req.Method = "POST";        // Post method
-                req.ContentType = "text/xml";     // content type
-                                                  // Wrap the request stream with a text-based writer
-                StreamWriter writer = new StreamWriter(req.GetRequestStream());
-                // Write the XML text into the stream
-                writer.WriteLine(this.GetTextFromXMLFile(fileName));
-                writer.Close();
-                // Send the data to the webserver
-                rsp = req.GetResponse();
-
-
-                System.Diagnostics.Debug.WriteLine(rsp);
-
-            }
-            catch (WebException webEx)
-            {
-                System.Diagnostics.Debug.WriteLine(webEx);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex);
-            }
-            finally
-            {
-                if (req != null) req.GetRequestStream().Close();
-                if (rsp != null) rsp.GetResponseStream().Close();
-            }
-            
-        }
-
-        //Function to read xml data from local system
-        private string GetTextFromXMLFile(string file)
-        {
-            StreamReader reader = new StreamReader(file);
-            string ret = reader.ReadToEnd();
-            reader.Close();
-            return ret;
-        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {

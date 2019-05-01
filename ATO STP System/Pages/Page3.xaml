@@ -5,11 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ATO_STP_System"
       mc:Ignorable="d" 
-      Height="450" 
+      Height="750" 
       Width="800"
       Title="Page3">
 
     <Grid>
-        <TextBlock x:Name="page3Block" Margin="104,142,128,44" TextWrapping="Wrap" Text="Page 3" VerticalAlignment="Center" Height="233" Width="560" HorizontalAlignment="Center" TextAlignment="Center"/>
+        <TextBlock x:Name="contentBlock" Margin="120,156,120,53" TextWrapping="Wrap" TextAlignment="Center" FontSize="18"/>
+        <Label x:Name="label" Content="Summary" Margin="320,30,320,0" VerticalAlignment="Top" Height="59" FontSize="36"/>
+        <Button Content="Next" MinWidth="100" HorizontalAlignment="Right" Click="Next_Button" Margin="0,664,690,0" Height="35" VerticalAlignment="Top"/>
     </Grid>
 </Page>

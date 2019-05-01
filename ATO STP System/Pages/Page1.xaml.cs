@@ -30,15 +30,23 @@ namespace ATO_STP_System
     {
 
         PAYEVNT testPAYEVNT;
-        
+
+        Uri _page1 = new Uri("Pages/Page1.xaml", UriKind.Relative);
+        Uri _page2 = new Uri("Pages/Page2.xaml", UriKind.Relative);
+        Uri _page3 = new Uri("Pages/Page3.xaml", UriKind.Relative);
+        Uri _page4 = new Uri("Pages/Page4.xaml", UriKind.Relative);
+
+
         public Page1()
         {
             InitializeComponent();
-            this.Height = (System.Windows.SystemParameters.PrimaryScreenHeight * 0.75);
-            this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth * 0.60);
 
-            errorBlock.Text = "";
+           
 
+            /*
+             * this.Height = (System.Windows.SystemParameters.PrimaryScreenHeight * 0.75);
+             * this.Width = (System.Windows.SystemParameters.PrimaryScreenWidth * 0.60);
+            */
 
             textName.Text = "";
             textLegalName.Text = "";
@@ -46,32 +54,13 @@ namespace ATO_STP_System
             textBusinessDescription.Text = "";
             textEmail.Text = "";
             textAddress.Text = "";
-
-
-            // TestXml community = new TestXml
-            // {
-            //     Author = "xxx xxx",
-            //     CommunityId = 0,
-            //     Name = "name of community",
-            //     Addresses = new List<Address> {
-            //  new RegisteredAddress {
-            // AddressLine1 = "xxx",
-            // AddressLine2 = "xxx",
-            // AddressLine3 = "xxx",
-            // City = "xx",
-            // Country = "xxxx",
-            // PostCode = "0000-00"
-            //},
-            //new TradingAddress {
-            //     AddressLine1 = "zz",
-            //     AddressLine2 = "xxx"
-            //        }
-            //     }
-            // };
+            textPostCode.Text = "";
 
 
             // var objeee = community;
             //Necessary PAYEVNT fields.
+
+            /*
             testPAYEVNT = new PAYEVNT();
             testPAYEVNT.Rp.SoftwareInformationBusinessManagementSystemId = "08136164-0685-4c6c-8697-6b9003b5b57a";
             testPAYEVNT.Rp.AustralianBusinessNumberId = "67094544519";
@@ -97,15 +86,7 @@ namespace ATO_STP_System
             testPAYEVNT.Rp.Declaration.ProxyDateSignatureD = new DateTime(2000, 5, 5);
             testPAYEVNT.Rp.Declaration.StatementAcceptedI = true;
 
-
-
-           
-
-            
-
-
-
-
+            */
 
             //Writes the xml to a file with filename. by default should appear in bin / Debug or bin/ Release folder.
             //USE THE EXTENSION.
@@ -113,40 +94,64 @@ namespace ATO_STP_System
             //var xml = XmlSerializationHelper.GetXml(testPAYEVNTEMP, NameSpaces.XmlSerializerNamespaces);
             //Console.WriteLine(xml);
 
-           
-
-
-
-
-
             //XmlSerializer serializer = new XmlSerializer(typeof(TestXml));
             //serializer.Serialize(File.Create("file.xml"), community, NameSpaces.XmlSerializerNamespaces, );
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void Next_Button(object sender, RoutedEventArgs e)
         {
 
+            bool startDateOkay = false;
+            bool endDateOkay = false;
 
+            if (dateStartYear.SelectedDate != null)
+            {
+                startDateOkay = true;
+            }
+            if (dateEndYear.SelectedDate != null)
+            {
+                endDateOkay = true;
+            }
 
-            //Employer employer = new Employer()
-            //{
-            //    name = textName.Text,
-            //    legalName = textLegalName.Text,
-            //    abnNumber = textABN.Text,
-            //    businessDescription = textBusinessDescription.Text,
-            //    contactEmail = textEmail.Text,
-            //    startYear = dateStartYear.SelectedDate.Value.Date,
-            //    endYear = dateEndYear.SelectedDate.Value.Date,
-            //    address = textAddress.Text,
-            //};
+            if (
+                textName.Text != "" &&
+                textLegalName.Text != "" &&
+                textABN.Text != "" &&
+                textBusinessDescription.Text != "" &&
+                startDateOkay &&
+                endDateOkay &&
+                textEmail.Text != "" &&
+                textAddress.Text != "" &&
+                textPostCode.Text != ""
+                )
+            {
+                Employer employer = new Employer()
+                {
+                    orgName = textName.Text,
+                    empName = textLegalName.Text,
+                    abnNumber = textABN.Text,
+                    businessDescription = textBusinessDescription.Text,
+                    contactEmail = textEmail.Text,
+                    startYear = dateStartYear.SelectedDate.Value.Date,
+                    endYear = dateEndYear.SelectedDate.Value.Date,
+                    address = textAddress.Text,
+                    postcode = textPostCode.Text
+                };
 
+                using (SQLiteConnection connection = new SQLiteConnection(DatabaseHelpers.employerDB))
+                {
+                    connection.CreateTable<Employer>();
+                    connection.Insert(employer);
+                }
 
-            //using (SQLiteConnection connection = new SQLiteConnection(DatabaseHelpers.databasePath))
-            //{
-            //    connection.CreateTable<Employer>();
-            //    connection.Insert(employer);
-            //}
-            testPAYEVNT.Rp.OrganisationName.DetailsOrganisationalNameT = textName.Text;
+                navigatePages();
+
+            } else {
+                MessageBoxResult result = MessageBox.Show("Please fill all fields in before continuing", "error");
+            }
+            
+            
+            /*testPAYEVNT.Rp.OrganisationName.DetailsOrganisationalNameT = textName.Text;
             testPAYEVNT.Rp.OrganisationName.PersonUnstructuredNameFullNameT = textLegalName.Text;
             testPAYEVNT.Rp.AustralianBusinessNumberId = textABN.Text;
             testPAYEVNT.Rp.ElectronicContact.ElectronicMailAddressT = textEmail.Text;
@@ -157,15 +162,45 @@ namespace ATO_STP_System
             var xml = XmlSerializationHelper.GetXml(testPAYEVNT, NameSpaces.XmlSerializerNamespaces);
             Console.WriteLine(xml);
 
-            Validate();
+            */
 
+    }
 
+    public void navigatePages()
+    {
+            Uri currentUri = ((MainWindow)Application.Current.MainWindow)._NavigationFrame.NavigationService.Source;
 
+            Uri newUri = _page1;
 
+            if (currentUri != null)
+            {
+                string uriString = currentUri.ToString();
 
+                switch (uriString)
+                {
+                    case "Pages/Page1.xaml":
+                        newUri = _page2;
+                        break;
+                    case "Pages/Page2.xaml":
+                        newUri = _page3;
+                        break;
+                    case "Pages/Page3.xaml":
+                        newUri = _page4;
+                        break;
+                    default:
+                        newUri = _page1;
+                        break;
+                }
+            }
+            else
+            {
+                newUri = _page2;
+            }
+            ((MainWindow)Application.Current.MainWindow)._NavigationFrame.NavigationService.Navigate(newUri);
         }
+    }
 
-        public void Validate()
+       /* public void Validate()
         {
             STPFileValidator _STPFileValidator = new STPFileValidator();
 
@@ -187,9 +222,6 @@ namespace ATO_STP_System
             }
         }
 
-
-
-    }
-
+    */
 
 }
