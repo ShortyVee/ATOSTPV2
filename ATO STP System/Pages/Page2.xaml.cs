@@ -142,6 +142,8 @@ namespace ATO_STP_System
                 testPAYEVNTEMP.Payee.RemunerationIncomeTaxPayAsYouGoWithholding.UnusedAnnualOrLongServiceLeavePayment = null;
                 //Writes the xml to a file with filename. by default should appear in bin / Debug or bin/ Release folder.
                 //USE THE EXTENSION.
+
+                XmlSerializationHelper.appendOver = false;
                 XmlSerializationHelper.outputFileName = payevntFile;
 
                 var empxml = XmlSerializationHelper.GetXml(testPAYEVNTEMP, NameSpaces.XmlSerializerNamespaces);
@@ -194,12 +196,7 @@ namespace ATO_STP_System
 
            
             
-            
-
-
-            XmlSerializationHelper.outputFileName = "ATOPAYLOAD.xml";
-            var xml = XmlSerializationHelper.GetXml(testPAYEVNTEMP, NameSpaces.XmlSerializerNamespaces);
-            Console.WriteLine(xml);
+         
             
             //Validate();
 

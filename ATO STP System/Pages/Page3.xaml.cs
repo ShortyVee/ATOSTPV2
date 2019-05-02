@@ -28,7 +28,7 @@ namespace ATO_STP_System
         Uri _page1 = new Uri("Pages/Page1.xaml", UriKind.Relative);
         Uri _page2 = new Uri("Pages/Page2.xaml", UriKind.Relative);
         Uri _page3 = new Uri("Pages/Page3.xaml", UriKind.Relative);
-        Uri _page4 = new Uri("Pages/Page4.xaml", UriKind.Relative);
+        //Uri _page4 = new Uri("Pages/Page4.xaml", UriKind.Relative);
 
 
         Employer readEmployer;
@@ -82,12 +82,16 @@ namespace ATO_STP_System
         
         private void Next_Button(object sender, RoutedEventArgs e)
         {
-            navigatePages();
 
+            XmlSerializationHelper.appendOver = false;
             XmlSerializationHelper.outputFileName = "ATOPAYLOAD.xml";
             XmlSerializationHelper.GetXml(MainWindow.testPAYEVNT, NameSpaces.XmlSerializerNamespaces);
+
+            XmlSerializationHelper.appendOver = true;
             XmlSerializationHelper.GetXml(MainWindow.testPAYEVNTEMP, NameSpaces.XmlSerializerNamespaces);
 
+
+            System.Windows.Application.Current.Shutdown();
         }
 
 
@@ -109,9 +113,9 @@ namespace ATO_STP_System
                     case "Pages/Page2.xaml":
                         newUri = _page3;
                         break;
-                    case "Pages/Page3.xaml":
-                        newUri = _page4;
-                        break;
+                    //case "Pages/Page3.xaml":
+                    //    newUri = _page4;
+                    //    break;
                     default:
                         newUri = _page1;
                         break;

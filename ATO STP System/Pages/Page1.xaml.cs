@@ -126,6 +126,7 @@ namespace ATO_STP_System
 
                 //Writes the xml to a file with filename. by default should appear in bin / Debug or bin/ Release folder.
                 //USE THE EXTENSION.
+                XmlSerializationHelper.appendOver = false;
                 XmlSerializationHelper.outputFileName = payevntFile;
                 var xml = XmlSerializationHelper.GetXml(testPAYEVNT, NameSpaces.XmlSerializerNamespaces);
                 Console.WriteLine(xml);
@@ -163,7 +164,7 @@ namespace ATO_STP_System
                 }
                 else
                 {
-                    string messageBoxTextError = "";
+                    
                     MessageBoxResult result = MessageBox.Show(GetErrorList(payevntFile), "error");
                 }
                 

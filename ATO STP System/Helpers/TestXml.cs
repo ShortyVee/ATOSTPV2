@@ -81,6 +81,7 @@ namespace ATO_STP_System.Helpers
         public static class XmlSerializationHelper
     {
         public static string outputFileName = "defaultxml";
+        public static bool appendOver = false;
 
         public static string GetXml<T>(this T obj)
         {
@@ -118,13 +119,9 @@ namespace ATO_STP_System.Helpers
 
 
             var fname = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, outputFileName);
-            var appendMode = false;
+            var appendMode = appendOver;
             var encoding = Encoding.UTF8;
 
-            if (obj.GetType() == typeof(PAYEVNTEMP))
-            {
-                appendMode = true;
-            }
 
             using (var streamWriter = new StreamWriter(fname, appendMode , encoding))
             {
