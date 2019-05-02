@@ -16,6 +16,7 @@ using System.Net.Http;
 using System.Net;
 using System.IO;
 using System.Diagnostics;
+using ATO_STP_System.Helpers;
 
 namespace ATO_STP_System
 {
@@ -29,6 +30,9 @@ namespace ATO_STP_System
         Uri _page2 = new Uri("Pages/Page2.xaml", UriKind.Relative);
         Uri _page3 = new Uri("Pages/Page3.xaml", UriKind.Relative);
         Uri _page4 = new Uri("Pages/Page4.xaml", UriKind.Relative);
+
+        public static PAYEVNT testPAYEVNT = new PAYEVNT();
+        public static PAYEVNTEMP testPAYEVNTEMP = new PAYEVNTEMP();
 
         public MainWindow()
         {

@@ -4,6 +4,7 @@ using SQLite;
 using STPFileValidation;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -36,6 +37,8 @@ namespace ATO_STP_System
         Uri _page3 = new Uri("Pages/Page3.xaml", UriKind.Relative);
         Uri _page4 = new Uri("Pages/Page4.xaml", UriKind.Relative);
 
+        string payevntFile = "testPAYEVNT.xml";
+
 
         public Page1()
         {
@@ -60,42 +63,12 @@ namespace ATO_STP_System
             // var objeee = community;
             //Necessary PAYEVNT fields.
 
-            /*
-            testPAYEVNT = new PAYEVNT();
-            testPAYEVNT.Rp.SoftwareInformationBusinessManagementSystemId = "08136164-0685-4c6c-8697-6b9003b5b57a";
-            testPAYEVNT.Rp.AustralianBusinessNumberId = "67094544519";
-            testPAYEVNT.Rp.OrganisationDetailsOrganisationBranchC = "100";
-            testPAYEVNT.Rp.OrganisationName.DetailsOrganisationalNameT = "organisation namee";
-            testPAYEVNT.Rp.OrganisationName.PersonUnstructuredNameFullNameT = "name";
-            testPAYEVNT.Rp.ElectronicContact.ElectronicMailAddressT = "haha@gmail.com";
-            testPAYEVNT.Rp.ElectronicContact.TelephoneMinimalN = "12 34567890";
-            testPAYEVNT.Rp.AddressDetailsPostal.Line1T = "12 collins st";
-            testPAYEVNT.Rp.AddressDetailsPostal.LocalityNameT = "Melbourne";
-            testPAYEVNT.Rp.AddressDetailsPostal.StateOrTerritoryC = "VIC";
-            testPAYEVNT.Rp.AddressDetailsPostal.PostcodeT = "3000";
-            testPAYEVNT.Rp.AddressDetailsPostal.CountryC = "au";
-            testPAYEVNT.Rp.Payroll.ProxyPaymentRecordTransactionD = new DateTime(2000, 5, 5);
-            testPAYEVNT.Rp.Payroll.InteractionRecordCt = 10;
-            testPAYEVNT.Rp.Payroll.MessageTimestampGenerationDt = new DateTime(2000, 5, 5);
-            testPAYEVNT.Rp.Payroll.InteractionTransactionId = "BULK008";
-            testPAYEVNT.Rp.Payroll.AmendmentI = false;
-            //the M changes it to a decimal type
-            testPAYEVNT.Rp.Payroll.IncomeTaxAndRemuneration.PayAsYouGoWithholdingTaxWithheldA = 324188.31M;
-            testPAYEVNT.Rp.Payroll.IncomeTaxAndRemuneration.TotalGrossPaymentsWithholdingA = 17821.87M;
-            testPAYEVNT.Rp.Declaration.SignatoryIdentifierT = "jassmith";
-            testPAYEVNT.Rp.Declaration.ProxyDateSignatureD = new DateTime(2000, 5, 5);
-            testPAYEVNT.Rp.Declaration.StatementAcceptedI = true;
 
-            */
 
-            //Writes the xml to a file with filename. by default should appear in bin / Debug or bin/ Release folder.
-            //USE THE EXTENSION.
-            //XmlSerializationHelper.outputFileName = "TEST.xml";
-            //var xml = XmlSerializationHelper.GetXml(testPAYEVNTEMP, NameSpaces.XmlSerializerNamespaces);
-            //Console.WriteLine(xml);
 
             //XmlSerializer serializer = new XmlSerializer(typeof(TestXml));
             //serializer.Serialize(File.Create("file.xml"), community, NameSpaces.XmlSerializerNamespaces, );
+
         }
 
         private void Next_Button(object sender, RoutedEventArgs e)
@@ -125,29 +98,80 @@ namespace ATO_STP_System
                 textPostCode.Text != ""
                 )
             {
-                Employer employer = new Employer()
-                {
-                    orgName = textName.Text,
-                    empName = textLegalName.Text,
-                    abnNumber = textABN.Text,
-                    businessDescription = textBusinessDescription.Text,
-                    contactEmail = textEmail.Text,
-                    startYear = dateStartYear.SelectedDate.Value.Date,
-                    endYear = dateEndYear.SelectedDate.Value.Date,
-                    address = textAddress.Text,
-                    postcode = textPostCode.Text
-                };
 
-                using (SQLiteConnection connection = new SQLiteConnection(DatabaseHelpers.employerDB))
+                testPAYEVNT = new PAYEVNT();
+                testPAYEVNT.Rp.SoftwareInformationBusinessManagementSystemId = "08136164-0685-4c6c-8697-6b9003b5b57a";
+                testPAYEVNT.Rp.AustralianBusinessNumberId = textABN.Text;
+                testPAYEVNT.Rp.OrganisationDetailsOrganisationBranchC = "100";
+                testPAYEVNT.Rp.OrganisationName.DetailsOrganisationalNameT = textName.Text;
+                testPAYEVNT.Rp.OrganisationName.PersonUnstructuredNameFullNameT = textLegalName.Text;
+                testPAYEVNT.Rp.ElectronicContact.ElectronicMailAddressT = textEmail.Text;
+                testPAYEVNT.Rp.ElectronicContact.TelephoneMinimalN = "12 34567890";
+                testPAYEVNT.Rp.AddressDetailsPostal.Line1T = textAddress.Text;
+                testPAYEVNT.Rp.AddressDetailsPostal.LocalityNameT = "Melbourne";
+                testPAYEVNT.Rp.AddressDetailsPostal.StateOrTerritoryC = "VIC";
+                testPAYEVNT.Rp.AddressDetailsPostal.PostcodeT = textPostCode.Text;
+                testPAYEVNT.Rp.AddressDetailsPostal.CountryC = "au";
+                testPAYEVNT.Rp.Payroll.ProxyPaymentRecordTransactionD = new DateTime(2000, 5, 5);
+                testPAYEVNT.Rp.Payroll.InteractionRecordCt = 10;
+                testPAYEVNT.Rp.Payroll.MessageTimestampGenerationDt = new DateTime(2000, 5, 5);
+                testPAYEVNT.Rp.Payroll.InteractionTransactionId = "BULK008";
+                testPAYEVNT.Rp.Payroll.AmendmentI = false;
+                //the M changes it to a decimal type
+                testPAYEVNT.Rp.Payroll.IncomeTaxAndRemuneration.PayAsYouGoWithholdingTaxWithheldA = 324188.31M;
+                testPAYEVNT.Rp.Payroll.IncomeTaxAndRemuneration.TotalGrossPaymentsWithholdingA = 17821.87M;
+                testPAYEVNT.Rp.Declaration.SignatoryIdentifierT = "jassmith";
+                testPAYEVNT.Rp.Declaration.ProxyDateSignatureD = new DateTime(2000, 5, 5);
+                testPAYEVNT.Rp.Declaration.StatementAcceptedI = true;
+
+                //Writes the xml to a file with filename. by default should appear in bin / Debug or bin/ Release folder.
+                //USE THE EXTENSION.
+                XmlSerializationHelper.outputFileName = payevntFile;
+                var xml = XmlSerializationHelper.GetXml(testPAYEVNT, NameSpaces.XmlSerializerNamespaces);
+                Console.WriteLine(xml);
+
+
+
+
+
+                if (Validate(payevntFile))
                 {
-                    connection.CreateTable<Employer>();
-                    connection.Insert(employer);
+                    Employer employer = new Employer()
+                    {
+                        orgName = textName.Text,
+                        empName = textLegalName.Text,
+                        abnNumber = textABN.Text,
+                        businessDescription = textBusinessDescription.Text,
+                        contactEmail = textEmail.Text,
+                        startYear = dateStartYear.SelectedDate.Value.Date,
+                        endYear = dateEndYear.SelectedDate.Value.Date,
+                        address = textAddress.Text,
+                        postcode = textPostCode.Text
+                    };
+
+                    using (SQLiteConnection connection = new SQLiteConnection(DatabaseHelpers.employerDB))
+                    {
+                        connection.DropTable<Employer>();
+                        connection.CreateTable<Employer>();
+                        connection.Insert(employer);
+
+                    }
+
+                    MainWindow.testPAYEVNT = testPAYEVNT;
+
+                    navigatePages();
                 }
-
-                navigatePages();
+                else
+                {
+                    string messageBoxTextError = "";
+                    MessageBoxResult result = MessageBox.Show(GetErrorList(payevntFile), "error");
+                }
+                
 
             } else {
-                MessageBoxResult result = MessageBox.Show("Please fill all fields in before continuing", "error");
+
+                string messageBoxTextError = "Please fill all fields in before continuing";
+                MessageBoxResult result = MessageBox.Show(messageBoxTextError, "error");
             }
             
             
@@ -198,30 +222,49 @@ namespace ATO_STP_System
             }
             ((MainWindow)Application.Current.MainWindow)._NavigationFrame.NavigationService.Navigate(newUri);
         }
-    }
 
-       /* public void Validate()
+
+        public bool Validate(string fileNameWithFileExtension)
         {
             STPFileValidator _STPFileValidator = new STPFileValidator();
-
-
-            errorBlock.Text = "";
-
-            _STPFileValidator.Validate("ATOPAYLOAD.xml");
+            bool isValid = false;
+            string errorString = "";
+            errorString = "";
+            _STPFileValidator.Validate(fileNameWithFileExtension);
             foreach (var error in _STPFileValidator.Errors)
             {
-                errorBlock.Text = errorBlock.Text + (error.Description) + (error.LongDescription)+ "\r\n";
-               
-            }
-               
-            
+                errorString = errorString + (error.Description) + (error.LongDescription) + "\r\n";
 
-            if (errorBlock.Text.Length < 5)
-            {
-                errorBlock.Text = "SUCCESS! VALID DETAILS";
             }
+            if (errorString.Length < 5)
+            {
+                errorString = "SUCCESS! VALID DETAILS";
+                isValid = true;
+            }
+
+            return isValid;
         }
 
-    */
+        public string GetErrorList(string fileNameWithFileExtension)
+        {
+            string errorList = "";
+            STPFileValidator _STPFileValidator = new STPFileValidator();
+            bool isValid = false;
+            errorList = "";
+            _STPFileValidator.Validate(fileNameWithFileExtension);
+            foreach (var error in _STPFileValidator.Errors)
+            {
+                errorList = errorList + (error.Description) + (error.LongDescription) + "\r\n";
+
+            }
+
+            return errorList;
+
+        }
+
+
+    }
+
+
 
 }

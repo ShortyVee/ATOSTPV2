@@ -10,7 +10,7 @@
       Title="Page3">
 
     <Grid>
-        <TextBlock x:Name="contentBlock" Margin="120,156,120,53" TextWrapping="Wrap" TextAlignment="Center" FontSize="18"/>
+        <TextBlock x:Name="contentBlock" Margin="120,94,120,53" TextWrapping="Wrap" TextAlignment="Center" FontSize="18"/>
         <Label x:Name="label" Content="Summary" Margin="320,30,320,0" VerticalAlignment="Top" Height="59" FontSize="36"/>
         <Button Content="Next" MinWidth="100" HorizontalAlignment="Right" Click="Next_Button" Margin="0,664,690,0" Height="35" VerticalAlignment="Top"/>
     </Grid>

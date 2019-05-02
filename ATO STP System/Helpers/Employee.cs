@@ -20,5 +20,25 @@ namespace ATO_STP_System.Helpers
         public decimal grossAmount { get; set; }
         public decimal taxWithheld { get; set; }
         public decimal superContribution { get; set; }
+
+        public string PrintDetails()
+        {
+            string returnString = "";
+
+            returnString += "First Name: " + firstName + "\r\n";
+            returnString += "Last Name: " + lastName + "\r\n";
+            returnString += "DOB Day : " + dobDay + "\r\n";
+            returnString += "DOB Month: " + dobMonth + "\r\n";
+            returnString += "DOB Year: " + dobYear + "\r\n";
+            returnString += "Address: " + address + "\r\n";
+            returnString += "PostCode: " + postcode + "\r\n";
+            returnString += "payFrom: " + payFrom + "\r\n";
+            returnString += "payTo: " + payTo + "\r\n";
+            returnString += "Gross: " + grossAmount + "\r\n";
+            returnString += "Tax Withheld: " + taxWithheld + "\r\n";
+            returnString += "Super Contribution: " + superContribution + "\r\n";
+
+            return returnString;
+        }
     }
 }
